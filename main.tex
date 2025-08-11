@@ -1,0 +1,133 @@
+\documentclass[10pt, light]{resubar}
+\usepackage{hologo}
+\usepackage{booktabs}
+\usepackage[
+  filledcolor=lightblue,
+  emptycolor=sakura,
+  ticksheight=0.5pt,
+  linecolor=gray
+]{progressbar}
+
+% 自定义设置
+\geometry{
+    xetex, 
+    % a4paper,
+    % 如果需要设置旧式的长图扩列条：
+    % 根据 A4 纸长度为 29.7 宽度为 21
+    paperwidth=10.5cm, 
+    paperheight=60cm % 需要加长就改这里
+}
+\linespread{1.25} % 修改行距
+% \setCJKmainfont{SimHei} % 设置全局中文字体为黑体
+
+\title{基于\LaTeX 的二次亲友扩列条模板 \\\small (好好好\LaTeX{}给你这么玩是吧)}
+
+\begin{document}
+
+\maketitle
+
+\section{关于我}
+
+这是一个\uline{基于 \LaTeX 构建的 ACGN 亲友扩列模板}，兼容单列、双列模式。可用于小红书、微博、半次元、Lofter、QQ空间等平台。适合一些连扩列条都要用\LaTeX 的\TeX Geek。(比如我)
+
+% 实际上这个模板的样式有点老了？这些年流行的扩列条都已经不是这种长条形状的了……不过没有关系，用户也可以根据他们自己的需求调整。
+
+\section{属性}
+
+结合原生的\LaTeX 命令，可以创造出各种有趣的排版，比如你可以在这里创建列表。以下均为示例，请根据实际情况修改：
+
+\subsection{混圈情况}
+
+\begin{preference}
+  你可以在这里写一些你混的圈子。
+  \begin{itemize}
+    \item \textbf{三次：} \LaTeX{}/SCP基金会/Backrooms/HP 等
+    \item \textbf{二次：} EVA/魔圆/APH/魔卡 等
+  \end{itemize}
+\end{preference}
+
+\begin{cp}
+  这里可以写下你磕的 CP，比如薰嗣、焰圆之类的。
+\end{cp}
+
+\begin{oshi}
+  我推就是我推啊，就是字面意思 (感谢 Fusily 帮我画了这两张弔图，放在这里好草啊哈哈哈哈。)
+  \twofigs{figure/pycharm64.150x150Logo.png}{figure/matlab.150x150Logo.png}
+\end{oshi}
+
+像上面这样，可以使用\texttt{\textbackslash twofigs\{\}\{\}} 并列插入两张图。
+
+\subsection{我的 OC}
+
+如果有 OC 的话也可以写在这里。可以使用 \texttt{\textbackslash fig\{\}} 命令插入你 OC 的绘 / 约稿 / 捏捏，命令会默认填充到页面的宽度。我这里就不额外展示了。
+
+\begin{minefield}
+  你可以在这里写下你的雷点。所谓雷点就是不知情的情况下无意中看了就会让你感觉不舒服的东西。比如：
+  \begin{itemize}
+    \item 刷屏、小窗轰炸骚扰；无意义键政；
+    \item 写\LaTeX{}不加注释。(？)
+  \end{itemize}
+\end{minefield}
+
+\section{其他玩法}
+
+\subsection{Font Awsome}
+
+本模板包含了 Font Awsome 宏包，可以使用一些 Font Awsome Icons 命令。下面随便列举了一些\footnote{如果有需要可以在 Font Awsome 官网查到所有的 Icons，尽管处于版本原因，部分最新更新的图标不可用，但大多数图标都是可以指定的。}。
+
+\begin{table}[H]
+  \centering
+  \caption{随意列举一些 Font Awsome 图标}
+  \begin{tabular}{c c | c c | c c}
+    \toprule
+    命令 & 图标 & 命令 & 图标 & 命令 & 图标 \\
+    \midrule
+    \texttt{\textbackslash faStar} & \faStar & \texttt{\textbackslash fcUser} & \faUser & \texttt{\textbackslash faBomb} & \faBomb \\
+    \texttt{\textbackslash faComment} & \faComment & \texttt{\textbackslash faHome} & \faHome & \texttt{\textbackslash faQq} & \faQq \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{数学公式}
+
+由于是\LaTeX{},你甚至可以在扩列条里使用数学公式\footnote{话说什么人会在扩列条里面写数学公式的啊喂！}
+
+\begin{equation}
+i\hbar\frac{\partial \psi}{\partial t}
+= \frac{-\hbar^2}{2m} \left(
+\frac{\partial^2}{\partial x^2}
++ \frac{\partial^2}{\partial y^2}
++ \frac{\partial^2}{\partial z^2}
+\right) \psi + V \psi
+\end{equation}
+
+\subsection{进度条}
+
+通过导入\texttt{progressbar}宏包，你可以指定颜色并使用进度条。
+
+\begin{preference}
+  \begin{tabular}{c c c | c c c}
+    同人 & \progressbar{0.88} & 原创 & 中日 \progressbar{0.4} & 欧美 \\
+    虚构 & \progressbar{0.65} & 现实 & 杂食 \progressbar{0.1} & 洁癖 \\
+    HE & \progressbar{0.7} & BE & 纯爱 \progressbar{0.4} & 银趴 \\
+    热圈 & \progressbar{0.35} & 冷圈 & 感性 \progressbar{0.6} & 理性 \\
+  \end{tabular}
+\end{preference}
+
+\section{文档类}
+
+文档类的名字叫做\texttt{resubar.cls}，因为扩列条某种意义上来说其实就是一种条形的简历，也就是“resume bar”吧？(思考状)
+
+\begin{notice}
+  文档的编译需要使用\hologo{XeLaTeX}
+\end{notice}
+
+文档类是基于\texttt{extarticle}的，继承了所有的参数。可以使用8磅、9磅、10磅、11磅、12磅、14磅、17磅、20磅字体；有light和dark两套颜色主题，通过参数选取。
+
+\section{扩列方式}
+
+使用\texttt{\textbackslash qrcode}命令插入二维码。路径指定正确后，二维码会被自动插入。
+
+\qrcode{figure/QRcode}
+
+\end{document}
