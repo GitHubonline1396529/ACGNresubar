@@ -76,7 +76,7 @@ left=0.5cm, right=0.5cm,
 top=0.5cm, bottom=0.5cm]{geometry}
 \RequirePackage[explicit]{titlesec}
 \RequirePackage{xhfill}
-\RequirePackage{ulem} % Used to add strikethrough text.
+\RequirePackage{ulem}  % Used to add strikethrough text.
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
 \RequirePackage{tcolorbox}
@@ -84,12 +84,12 @@ top=0.5cm, bottom=0.5cm]{geometry}
 \RequirePackage{atbegshi}
 \RequirePackage{color}
 \RequirePackage{float}
-\RequirePackage{tabu}
 \RequirePackage{multirow}
 \RequirePackage{enumitem}
 \RequirePackage{amsthm}
 \RequirePackage{subcaption}
-\RequirePackage{fontawesome}
+\RequirePackage{fontawesome5}
+% To support MiKTeX here should use fontawesome5 instead of fontawesome.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define colors for the document.
@@ -225,8 +225,8 @@ top=0.5cm, bottom=0.5cm]{geometry}
   coltitle=white, % Title color.
   fonttitle=\bfseries, % Bold font for title.
   fontupper=\bfseries\color{frontcolor},  % Bold font for text.
-  boxrule=0.75mm, % 边框粗细
-  % arc=2mm, % 圆角半径
+  boxrule=0.75mm, % Border thickness.
+  % arc=2mm, % Corner radius.
   left=2.5pt, right=2.5pt, % 内边距
   top=2.5pt, bottom=2.5pt,
   title={\faThumbsUp\ 偏好~\thetcbcounter}, % Title format.
@@ -352,7 +352,7 @@ top=0.5cm, bottom=0.5cm]{geometry}
   \bfseries\Large\@title\vspace{0.5em}
 
   % Create a table with five rows and two columns, hiding the lines.
-  \begin{tabu}{ c l }
+  \begin{tabular}{ c l }
       \multirow{4}{1.05\avatarwidth}{
           \centering\includegraphics[
               width=\avatarwidth
@@ -361,7 +361,7 @@ top=0.5cm, bottom=0.5cm]{geometry}
       & \textnormal{\faTags\ \@tagA} \\
       & \textnormal{\faTags\ \@tagB} \\
       & \textnormal{\faTags\ \@tagC} \\
-  \end{tabu}
+  \end{tabular}
 \end{center}
 }
 
