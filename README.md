@@ -29,7 +29,7 @@
 
 ### 生成 PNG 文件
 
-一般情况下，在 ACGN 社区我们通常使用 PNG 作为扩列条 / 自介条的文件格式。你当然可以直接将编译产生的 PDF 文件发给你想要扩列的亲友，或者直接使用免费的在线文件格式转换平台。但是我还是编写了一个 Python 脚本 [`build_image.py`](build_image.py) 用于将 TeX 编译生成的 PDF 文件转换为图片格式。
+一般情况下，在 ACGN 社区我们通常使用 PNG 作为扩列条 / 自介条的文件格式。你当然可以直接将编译产生的 PDF 文件发给你想要扩列的亲友，或者直接使用免费的在线文件格式转换平台。但是我还是编写了一个 Python 脚本 [`build_image.py`](build_image.py) 用于将 TeX 编译生成的 PDF 文件转换为图片格式。(因此您需要安装 Python 以及 `pdf2image` 库。)
 
 ### 效果展示
 
@@ -41,7 +41,43 @@
 
 ## 使用方法
 
-目前这个项目还不是特别的完善，目前只是刚刚做到了可以正常使用的程度而已。后续完善之后，会上传完整的用户指南手册，并对这份 README 文件中的内容进行增删。用户们现在可以根据项目代码中的注释的提示使用本项目。
+### 环境配置
+
+#### LaTeX 环境
+
+您可以使用 LaTeX 的任何发行版来编译本模板，您可以使用 TeX Live 和 MiKTeX。
+
+#### Python 环境
+
+正如上文所述，您需要安装 Python 以及 `pdf2image` 库来运行 [`build_image.py`](build_image.py) 脚本。您可以使用以下命令来安装 `pdf2image`：
+
+```bash
+pip install pdf2image 
+```
+
+当然，如果您不想配置 Python 环境也可以利用您找到的任何其他工具来将 PDF 转换为 PNG 文件格式 (或者直接将 PDF 格式的文件发给您的亲友，如果您愿意的话)。
+
+#### Bash 运行环境
+
+本项目提供了一份 Makefile，因此您可以使用 `make` 命令来编译本项目。这需要您确保您的系统中安装了 Bash 运行环境。当然，如果您不使用 Makefile，也可以手动构建 PDF 文件然后运行 Python 脚本。
+
+总而言之，本项目为您提供了诸多工具和自动化脚本来帮助您更轻松地使用这个模板，这些工具都可以灵活地使用。
+
+### 使用 Makefile 完成自动构建
+
+本项目提供了一个 Makefile，您可以使用 `make` 命令来自动构建 PDF 文件和 PNG 文件。您可以在终端中运行以下命令：
+
+```bash
+make all  # 自动生成 main.tex 对应的 PDF 和 PNG 文件
+make  # 直接编译，相当于 make all
+make pdf  # 仅生成 PDF 文件，不生成 PNG 文件
+make png  # 生成 PNG 需要 PDF，所以还是相当于 make all
+make clear  # 清理生成的辅助文件和中间文件
+make clean  # 清理所有生成的文件，包括 PDF 和 PNG 文件
+make example  # 编译示例文件
+```
+
+其中，`pdf` 编译规则默认使用 `latexmk -xelatex` 命令来编译 TeX 文件，您也可以根据需要修改 Makefile 中的编译规则。
 
 ## 项目与开源
 
