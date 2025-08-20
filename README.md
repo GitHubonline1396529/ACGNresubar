@@ -35,9 +35,7 @@
 
 下图展现了该模板在亮色模式下的排版效果。该如果你想复现这个排版，你可以使用 `light, twocolumn, 10pt` 的文档类初始化参数来指定文档布局。
 
-![亮色模式展示效果](./figure/light.png)
-
-![暗色模式展示效果](./figure/dark.png)
+![展示效果](./figure/samples.png)
 
 ## 使用方法
 
