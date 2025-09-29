@@ -349,14 +349,14 @@ top=0.5cm, bottom=0.5cm]{geometry}
 % Define the title format.
 \renewcommand\maketitle{
   \begin{center}%
-  \bfseries\Large\@title\vspace{0.5em}
+  \bfseries\Large\@title\vspace{0.5em}\par
 
   % Create a table with five rows and two columns, hiding the lines.
   \begin{tabular}{ c l }
-      \multirow{4}{1.05\avatarwidth}{
-          \centering\includegraphics[
-              width=\avatarwidth
-              ]{\@avatarfile}} &
+      \multirow{4}{1.05\avatarwidth}{%
+          \centering\includegraphics[%
+              width=\avatarwidth%
+              ]{\@avatarfile}} &%
       \textbf{cn：\@cosname} \\
       & \textnormal{\faTags\ \@tagA} \\
       & \textnormal{\faTags\ \@tagB} \\
